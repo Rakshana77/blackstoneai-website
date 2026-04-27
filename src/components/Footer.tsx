@@ -1,4 +1,4 @@
-import { Heart } from 'lucide-react';
+import { Heart, Facebook, Instagram, Linkedin, MessageCircle, Phone } from 'lucide-react';
 
 const footerLinks = [
   {
@@ -42,30 +42,37 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#hero" className="flex items-center gap-2.5 mb-5">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-lg"
-                   style={{ background: 'linear-gradient(135deg, #DC2626, #EF4444)' }}>
-                B
-              </div>
-              <div>
-                <span className="text-white font-extrabold text-lg">Business</span>
-                <span className="font-extrabold text-lg gradient-text">OnGo</span>
-                <span className="text-slate-600 text-[10px] block -mt-1 font-medium tracking-wider">by Blackstone AI</span>
+            <a href="#hero" className="flex items-center gap-3 mb-5 group">
+              <img src="/images/logo.png" alt="Blackstone AI Logo" className="w-12 h-12 object-contain" />
+              <div className="flex flex-col">
+                <div className="flex items-center">
+                  <span className="text-white font-extrabold text-xl tracking-tight leading-none">Blackstone</span>
+                  <span className="font-extrabold text-xl tracking-tight gradient-text ml-1.5 leading-none">AI</span>
+                </div>
+                <span className="text-slate-400 text-[10px] font-bold tracking-wider mt-1 uppercase italic">Delivering value to your business</span>
               </div>
             </a>
             <p className="text-sm leading-relaxed mb-6 max-w-sm">
-              AI-powered omnichannel customer engagement platform. Connect WhatsApp, Instagram, Facebook & Telegram — automate conversations, capture leads, and grow revenue. Built in India, for Indian businesses.
+              AI-powered omnichannel customer engagement platform. Grow your business with smart digital solutions. Delivering value to your business worldwide.
             </p>
-            <div className="flex gap-3">
+            
+            <div className="flex flex-col gap-4 mb-6">
+              <a href="tel:+6581798737" className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                <Phone size={16} className="text-red-500" />
+                <span className="font-bold">+65 81798737</span>
+              </a>
+            </div>
+
+            <div className="flex gap-4">
               {[
-                { icon: '𝕏', label: 'Twitter' },
-                { icon: 'in', label: 'LinkedIn' },
-                { icon: '📸', label: 'Instagram' },
-                { icon: '▶', label: 'YouTube' },
+                { icon: Facebook, label: 'Facebook', href: 'https://facebook.com/blackstoneai' },
+                { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/blackstoneai' },
+                { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/blackstoneai' },
+                { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services.' },
               ].map((social, i) => (
-                <a key={i} href="#" aria-label={social.label}
-                   className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-sm font-bold text-slate-400 hover:text-white hover:bg-red-600/20 hover:border-red-500/30 transition-all">
-                  {social.icon}
+                <a key={i} href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer"
+                   className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-red-600 hover:border-red-500 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(220,38,38,0.4)] transition-all duration-300">
+                  <social.icon size={20} />
                 </a>
               ))}
             </div>
@@ -90,10 +97,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-          <p>© {new Date().getFullYear()} BusinessOnGo by Blackstone AI. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Made with <Heart size={12} className="text-red-500 fill-red-500" /> in Hyderabad, India
-          </p>
+          <p>© {new Date().getFullYear()} Blackstone AI. All rights reserved.</p>
         </div>
       </div>
     </footer>

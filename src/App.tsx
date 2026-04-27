@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TrustSection from './components/TrustSection';
 import About from './components/About';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
@@ -18,6 +19,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <TrustSection />
         <About />
         <Features />
         <HowItWorks />
@@ -32,7 +34,7 @@ export default function App() {
 
       {/* Sticky WhatsApp CTA Button */}
       <a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
         target="_blank"
         rel="noopener noreferrer"
         id="sticky-whatsapp-cta"

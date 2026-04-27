@@ -30,7 +30,7 @@ export default function Contact() {
             <span className="gradient-text">Growth Engine</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">
-            Book a free personalized demo. See exactly how BusinessOnGo works for your business.
+            Book a free personalized demo. See exactly how Blackstone AI works for your business.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-xs text-ink-muted font-semibold uppercase tracking-wider mb-1">Call Us</div>
-                <a href="tel:+919876543210" className="text-ink font-bold hover:text-primary transition-colors">+91 98765 43210</a>
+                <a href="tel:+6581798737" className="text-ink font-bold hover:text-primary transition-colors">+65 81798737</a>
               </div>
             </div>
 
@@ -52,7 +52,8 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-xs text-ink-muted font-semibold uppercase tracking-wider mb-1">WhatsApp</div>
-                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+                   target="_blank" rel="noopener noreferrer"
                    className="text-ink font-bold hover:text-whatsapp transition-colors">Chat Instantly</a>
               </div>
             </div>
@@ -63,27 +64,27 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-xs text-ink-muted font-semibold uppercase tracking-wider mb-1">Email</div>
-                <a href="mailto:hello@businessongo.in" className="text-ink font-bold hover:text-primary transition-colors">hello@businessongo.in</a>
+                <a href="mailto:hello@blackstoneai.in" className="text-ink font-bold hover:text-primary transition-colors">hello@blackstoneai.in</a>
               </div>
             </div>
 
             <div className="glass-card flex items-center gap-4 flex-1">
               <div className="feature-icon-wrap shrink-0" style={{ background: 'linear-gradient(135deg, #B91C1C, #DC2626)' }}>
-                <MapPin size={20} />
+                <Clock size={20} />
               </div>
               <div>
-                <div className="text-xs text-ink-muted font-semibold uppercase tracking-wider mb-1">Office</div>
-                <span className="text-ink font-bold text-sm">Blackstone AI, Hyderabad, India</span>
+                <div className="text-xs text-ink-muted font-semibold uppercase tracking-wider mb-1">Availability</div>
+                <span className="text-ink font-bold text-sm">24/7 Automated Support</span>
               </div>
             </div>
 
             <div className="glass-card flex items-center gap-4 flex-1">
               <div className="feature-icon-wrap shrink-0" style={{ background: 'linear-gradient(135deg, #EF4444, #DC2626)' }}>
-                <Clock size={20} />
+                <Send size={20} />
               </div>
               <div>
-                <div className="text-xs text-ink-muted font-semibold uppercase tracking-wider mb-1">Response Time</div>
-                <span className="text-ink font-bold text-sm">Under 2 hours on working days</span>
+                <div className="text-xs text-ink-muted font-semibold uppercase tracking-wider mb-1">Privacy</div>
+                <span className="text-ink font-bold text-sm">End-to-end Encrypted</span>
               </div>
             </div>
           </div>
@@ -99,7 +100,7 @@ export default function Contact() {
               )}
 
               <h3 className="text-xl font-bold text-ink mb-1">Book Your Free Demo</h3>
-              <p className="text-ink-muted text-sm mb-6">Fill the form below and we'll show you exactly how BusinessOnGo works for your business.</p>
+              <p className="text-ink-muted text-sm mb-6">Fill the form below and we'll show you exactly how Blackstone AI works for your business.</p>
               
               <div className="grid sm:grid-cols-2 gap-4 mb-4">
                 <input id="contact-name" name="name" type="text" placeholder="Your Name *" required value={formData.name} onChange={handleChange} className="form-input" />
@@ -119,9 +120,11 @@ export default function Contact() {
                 </select>
               </div>
               <textarea id="contact-message" name="message" placeholder="Tell us about your business and what you'd like to automate..." rows={4} value={formData.message} onChange={handleChange} className="form-input mb-6 resize-none flex-1" />
-              <button type="submit" id="contact-submit" className="btn-primary w-full !py-4 !text-base">
-                <Send size={18} /> Book Free Demo
-              </button>
+              <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+                 target="_blank" rel="noopener noreferrer"
+                 className="btn-primary w-full !py-4 !text-base text-center flex items-center justify-center gap-2">
+                <MessageCircle size={18} /> Book Now on WhatsApp
+              </a>
               <p className="text-xs text-ink-muted text-center mt-3">
                 🔒 100% secure. We never share your data. No spam, ever.
               </p>

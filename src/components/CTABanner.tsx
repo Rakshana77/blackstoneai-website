@@ -23,16 +23,19 @@ export default function CTABanner() {
           </h2>
 
           <p className="text-lg text-white/80 mb-10 max-w-xl mx-auto">
-            Every minute you wait, a competitor replies first. Let BusinessOnGo handle your conversations 24/7 — so you never miss another lead.
+            Every minute you wait, a competitor replies first. Let Blackstone AI handle your conversations 24/7 — so you never miss another lead.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" id="cta-banner-demo"
+            <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+               target="_blank" rel="noopener noreferrer"
+               id="cta-banner-demo"
                className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl font-bold text-base text-red-600 bg-white transition-all duration-300 cursor-pointer hover:bg-gray-100 hover:-translate-y-0.5"
                style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
-              Book Demo Now <ArrowRight size={18} />
+              Book Now <ArrowRight size={18} />
             </a>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+               target="_blank" rel="noopener noreferrer"
                className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl font-bold text-base text-white bg-white/15 border border-white/25 transition-all duration-300 cursor-pointer hover:bg-white/25 hover:-translate-y-0.5">
               <MessageCircle size={18} /> Chat on WhatsApp
             </a>

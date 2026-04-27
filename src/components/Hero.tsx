@@ -18,28 +18,33 @@ export default function Hero() {
           <div className="animate-slide-up">
             <div className="section-badge !bg-white/10 !text-red-300 mb-6">
               <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-              <span>OMNICHANNEL AI</span>
+              <span>DELIVERING VALUE TO YOUR BUSINESS</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.1] mb-6">
-              Turn Customer Conversations into{' '}
+              Grow Your Business with{' '}
               <span className="relative">
-                <span className="gradient-text">Revenue</span>
+                <span className="gradient-text">Smart Digital Solutions</span>
               </span>
-              {' '}— Automatically
             </h1>
 
             <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-8 max-w-xl">
-              Connect WhatsApp, Instagram, Facebook, and Telegram in one platform. Grow your business without increasing manpower.
+              Delivering value to your business with intelligent automation.
             </p>
+
+
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <a href="#contact" id="hero-cta-demo" className="btn-primary !py-4 !px-8 !text-base !rounded-2xl">
-                Book Demo <ArrowRight size={18} />
+              <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+                 target="_blank" rel="noopener noreferrer"
+                 className="btn-primary !py-4 !px-8 !text-base !rounded-2xl">
+                Book Now <ArrowRight size={18} />
               </a>
-              <a href="#how-it-works" id="hero-cta-learn" className="btn-secondary !py-4 !px-8 !text-base !rounded-2xl !bg-white/5 !border-white/20 !text-white hover:!bg-white/10">
-                Learn More <ChevronRight size={16} />
+              <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+                 target="_blank" rel="noopener noreferrer"
+                 className="btn-secondary !py-4 !px-8 !text-base !rounded-2xl !bg-white/5 !border-white/20 !text-white hover:!bg-white/10 flex items-center gap-2">
+                <MessageCircle size={18} className="text-green-400" /> Chat on WhatsApp
               </a>
             </div>
 

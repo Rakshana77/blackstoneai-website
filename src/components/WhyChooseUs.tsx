@@ -1,7 +1,7 @@
 import { TrendingUp, Clock, Users, Shield, Zap, HeadphonesIcon } from 'lucide-react';
 
 const reasons = [
-  { title: '3× More Conversions', desc: 'Businesses using BusinessOnGo see up to 3× increase in lead-to-customer conversion rates.', icon: TrendingUp },
+  { title: '3× More Conversions', desc: 'Businesses using Blackstone AI see up to 3× increase in lead-to-customer conversion rates.', icon: TrendingUp },
   { title: 'Reply in Under 2 Minutes', desc: 'AI agents respond instantly. No more losing customers to slow response times.', icon: Clock },
   { title: '500+ Businesses Trust Us', desc: 'From local shops to growing startups, hundreds of businesses rely on our platform daily.', icon: Users },
   { title: 'Enterprise-Grade Security', desc: 'End-to-end encryption, data privacy compliance, and secure cloud infrastructure.', icon: Shield },
@@ -20,14 +20,14 @@ export default function WhyChooseUs() {
         <div className="text-center mb-16">
           <div className="section-badge !bg-white/10 !text-red-300 mx-auto mb-4">
             <Shield size={14} />
-            <span>Why BusinessOnGo</span>
+            <span>Why Blackstone AI</span>
           </div>
           <h2 className="section-title !text-white mx-auto">
             Results That{' '}
             <span className="gradient-text">Speak for Themselves</span>
           </h2>
           <p className="section-subtitle !text-slate-400 mx-auto mt-4">
-            Don't just automate — accelerate. Here's why businesses across India choose us.
+            Don't just automate — accelerate. Here's why global businesses choose us.
           </p>
         </div>
 

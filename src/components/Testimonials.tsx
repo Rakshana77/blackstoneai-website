@@ -4,7 +4,7 @@ const testimonials = [
   {
     name: 'Priya Sharma',
     role: 'Owner, Glow Beauty Lounge',
-    text: "Our no-show rate dropped by 60% after automating appointment reminders on WhatsApp. BusinessOnGo literally pays for itself. I can't imagine running my salon without it now.",
+    text: "Our no-show rate dropped by 60% after automating appointment reminders on WhatsApp. Blackstone AI literally pays for itself. I can't imagine running my salon without it now.",
     rating: 5,
     avatar: '👩‍💼',
     gradient: 'linear-gradient(135deg, #DC2626, #EF4444)',
@@ -36,7 +36,7 @@ const testimonials = [
   {
     name: 'Vikram Singh',
     role: 'CEO, LearnPro Academy',
-    text: "Managing 2000+ student inquiries manually was impossible. BusinessOnGo handles the initial screening and only sends qualified leads to our counselors. Enrollment is up 45%.",
+    text: "Managing 2000+ student inquiries manually was impossible. Blackstone AI handles the initial screening and only sends qualified leads to our counselors. Enrollment is up 45%.",
     rating: 5,
     avatar: '👨‍🏫',
     gradient: 'linear-gradient(135deg, #1C1C1C, #0A0A0A)',
@@ -65,7 +65,7 @@ export default function Testimonials() {
             <span className="gradient-text">Real Results.</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">
-            See how businesses across India are growing with our AI-powered automation platform.
+            See how businesses worldwide are growing with our AI-powered automation platform.
           </p>
         </div>
 

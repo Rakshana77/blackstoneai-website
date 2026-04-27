@@ -66,7 +66,7 @@ export default function Solutions() {
             <span className="gradient-text">Every Industry</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">
-            Whether you run a salon or a SaaS company — BusinessOnGo adapts to your workflow.
+            Whether you run a salon or a SaaS company — Blackstone AI adapts to your workflow.
           </p>
         </div>
 
@@ -88,7 +88,9 @@ export default function Solutions() {
                       </span>
                     ))}
                   </div>
-                  <a href="#contact" className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-3 transition-all duration-300">
+                  <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+                     target="_blank" rel="noopener noreferrer"
+                     className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-3 transition-all duration-300">
                     Get Started <ArrowRight size={14} />
                   </a>
                 </div>

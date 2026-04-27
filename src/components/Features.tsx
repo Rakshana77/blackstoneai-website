@@ -88,7 +88,9 @@ export default function Features() {
               <h3 className="text-xl font-bold text-ink mb-3">{f.title}</h3>
               <p className="text-ink-muted text-sm leading-relaxed mb-4">{f.desc}</p>
 
-              <a href="#contact" className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-3 transition-all duration-300">
+              <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+                 target="_blank" rel="noopener noreferrer"
+                 className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-3 transition-all duration-300">
                 Learn More <ArrowRight size={14} />
               </a>
 

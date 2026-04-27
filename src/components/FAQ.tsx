@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    q: 'What exactly is BusinessOnGo?',
-    a: 'BusinessOnGo is an AI-powered omnichannel communication platform built by Blackstone AI. It connects WhatsApp, Instagram, Facebook, and Telegram into one unified inbox — with AI chatbots, Smart CRM, broadcast campaigns, and team collaboration tools. Think of it as your entire customer communication stack in one place.',
+    q: 'What exactly is Blackstone AI?',
+    a: 'Blackstone AI is an AI-powered omnichannel communication platform. It connects WhatsApp, Instagram, Facebook, and Telegram into one unified inbox — with AI chatbots, Smart CRM, broadcast campaigns, and team collaboration tools. Think of it as your entire customer communication stack in one place.',
   },
   {
     q: 'How does the AI chatbot work?',
@@ -12,19 +12,19 @@ const faqs = [
   },
   {
     q: 'Which messaging channels are supported?',
-    a: 'BusinessOnGo currently supports WhatsApp Business API, Instagram Direct Messages, Facebook Messenger, and Telegram. All conversations appear in one unified inbox, so your team never has to switch between apps.',
+    a: 'Blackstone AI currently supports WhatsApp Business API, Instagram Direct Messages, Facebook Messenger, and Telegram. All conversations appear in one unified inbox, so your team never has to switch between apps.',
   },
   {
     q: 'Is it suitable for small businesses?',
-    a: 'Absolutely! BusinessOnGo is designed specifically for growing businesses in India — salons, restaurants, clinics, retail stores, coaching centers, and service providers. Our pricing is affordable, setup takes under 10 minutes, and no technical skills are required.',
+    a: 'Absolutely! Blackstone AI is designed specifically for growing businesses — salons, restaurants, clinics, retail stores, coaching centers, and service providers worldwide. Our pricing is affordable, setup takes under 10 minutes, and no technical skills are required.',
   },
   {
     q: 'Do you offer a free trial or demo?',
     a: 'Yes! We offer a free personalized demo where our team walks you through the platform and shows how it applies to your specific business. You can also start with a free trial to experience the full power of automation before committing to a plan.',
   },
   {
-    q: 'How is BusinessOnGo different from other tools?',
-    a: 'Unlike single-channel tools, BusinessOnGo is a true omnichannel platform. We combine AI chatbots, CRM, broadcast campaigns, multi-agent support, and analytics in one solution. Plus, we\'re built for Indian businesses with local support, affordable pricing, and industry-specific templates.',
+    q: 'How is Blackstone AI different from other tools?',
+    a: 'Unlike single-channel tools, Blackstone AI is a true omnichannel platform. We combine AI chatbots, CRM, broadcast campaigns, multi-agent support, and analytics in one solution. Plus, we\'re built for modern businesses with 24/7 support, affordable pricing, and industry-specific templates.',
   },
   {
     q: 'How quickly can I get started?',
@@ -52,7 +52,7 @@ export default function FAQ() {
             <span className="gradient-text">Questions?</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">
-            Everything you need to know about BusinessOnGo. Can't find your answer? Chat with us.
+            Everything you need to know about Blackstone AI. Can't find your answer? Chat with us.
           </p>
         </div>
 

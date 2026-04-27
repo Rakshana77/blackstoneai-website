@@ -30,15 +30,14 @@ export default function Navbar() {
     >
       <div className="container-main flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-lg"
-               style={{ background: 'linear-gradient(135deg, #DC2626, #EF4444)' }}>
-            B
-          </div>
-          <div>
-            <span className="text-white font-extrabold text-lg tracking-tight">Business</span>
-            <span className="font-extrabold text-lg tracking-tight gradient-text">OnGo</span>
-            <span className="text-slate-500 text-[10px] block -mt-1 font-medium tracking-wider">by Blackstone AI</span>
+        <a href="#hero" className="flex items-center gap-3 group">
+          <img src="/images/logo.png" alt="Blackstone AI Logo" className="w-12 h-12 object-contain" />
+          <div className="flex flex-col">
+            <div className="flex items-center">
+              <span className="text-white font-extrabold text-xl tracking-tight leading-none">Blackstone</span>
+              <span className="font-extrabold text-xl tracking-tight gradient-text ml-1.5 leading-none">AI</span>
+            </div>
+            <span className="text-slate-400 text-[10px] font-bold tracking-wider mt-1 uppercase italic">Delivering value to your business</span>
           </div>
         </a>
 
@@ -50,9 +49,17 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:flex items-center gap-3">
-          <a href="#contact" className="btn-primary !py-2.5 !px-6 !text-xs">
-            <Zap size={14} /> Book Demo
+        <div className="hidden lg:flex items-center gap-4">
+          <a href="tel:+6581798737" className="flex items-center gap-2 text-white font-bold hover:text-red-500 transition-colors">
+            <div className="w-8 h-8 rounded-full bg-red-600/20 flex items-center justify-center">
+              <Zap size={14} className="text-red-500" />
+            </div>
+            <span>+65 81798737</span>
+          </a>
+          <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+             target="_blank" rel="noopener noreferrer" 
+             className="btn-primary !py-2.5 !px-6 !text-xs">
+            <Zap size={14} /> Book Now
           </a>
         </div>
 
@@ -82,8 +89,14 @@ export default function Navbar() {
               </a>
             ))}
             <div className="flex flex-col gap-3 mt-4">
-              <a href="#contact" className="btn-primary text-center" onClick={() => setMobileOpen(false)}>
-                <Zap size={16} /> Book Demo
+              <a href="tel:+6581798737" className="text-white font-bold py-2 border-b border-white/10 flex items-center gap-2">
+                <Zap size={16} className="text-red-500" /> +65 81798737
+              </a>
+              <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+                 target="_blank" rel="noopener noreferrer"
+                 className="btn-primary text-center" 
+                 onClick={() => setMobileOpen(false)}>
+                <Zap size={16} /> Book Now
               </a>
             </div>
           </div>
