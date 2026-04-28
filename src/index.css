@@ -40,9 +40,6 @@
 
 /* ─── Base ─── */
 @layer base {
-  * {
-    scroll-behavior: smooth;
-  }
   body {
     @apply text-ink antialiased bg-surface font-sans;
     overflow-x: hidden;
@@ -60,17 +57,7 @@
 @layer components {
   /* Layout Containers */
   .container-main {
-    @apply max-w-[1280px] mx-auto px-5;
-  }
-  @media (min-width: 768px) {
-    .container-main {
-      @apply px-8;
-    }
-  }
-  @media (min-width: 1024px) {
-    .container-main {
-      @apply px-12;
-    }
+    @apply w-full max-w-[1600px] mx-auto px-5 md:px-8 lg:px-12 xl:px-20;
   }
   
   /* Section spacing */
@@ -85,10 +72,10 @@
     color: #DC2626;
   }
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink mt-4 mb-4;
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-ink mt-4 mb-4;
   }
   .section-subtitle {
-    @apply text-base md:text-lg text-ink-muted max-w-2xl leading-relaxed;
+    @apply text-lg md:text-xl text-ink-muted max-w-3xl leading-relaxed;
   }
   
   /* Buttons */
@@ -141,19 +128,39 @@
   
   /* Cards */
   .glass-card {
-    @apply bg-white rounded-2xl p-6 md:p-8 transition-all duration-500;
+    @apply bg-white rounded-2xl p-6 md:p-8 transition-all duration-500 relative z-10 overflow-hidden;
     border: 1px solid rgba(229, 229, 229, 0.8);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: -1;
   }
   .glass-card:hover {
-    border-color: rgba(220, 38, 38, 0.3);
-    box-shadow: 0 20px 40px rgba(220, 38, 38, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
-    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.15);
+    transform: translateY(-5px);
+  }
+  .glass-card:hover::before {
+    opacity: 1;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.6), rgba(239, 68, 68, 0.2), transparent);
   }
   
   .feature-icon-wrap {
-    @apply w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-5;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-5 transition-transform duration-500;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+  }
+  .glass-card:hover .feature-icon-wrap {
+    transform: scale(1.1) rotate(-5deg);
   }
   
   /* Gradient Backgrounds */
@@ -181,7 +188,7 @@
   
   /* Input styles */
   .form-input {
-    @apply w-full px-4 py-3 rounded-xl border border-divider bg-white text-ink text-sm transition-all duration-300;
+    @apply w-full px-4 py-3 rounded-xl border border-divider bg-white text-ink text-base transition-all duration-300;
   }
   .form-input:focus {
     @apply outline-none border-primary-light ring-4 ring-primary-soft;
@@ -192,7 +199,7 @@
   
   /* Nav */
   .nav-link {
-    @apply text-sm font-semibold text-slate-300 transition-colors duration-300 cursor-pointer;
+    @apply text-base font-semibold text-slate-300 transition-colors duration-300 cursor-pointer;
   }
   .nav-link:hover {
     @apply text-white;
@@ -216,6 +223,14 @@
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes border-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
@@ -225,6 +240,17 @@
 }
 .animate-slide-up {
   animation: slide-up-fade 0.6s ease-out forwards;
+}
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  display: flex;
+  width: max-content;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 /* Sticky CTA */

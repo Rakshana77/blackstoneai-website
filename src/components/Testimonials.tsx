@@ -1,4 +1,5 @@
 import { Star, Quote } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const testimonials = [
   {
@@ -51,27 +52,54 @@ const testimonials = [
   },
 ];
 
+const easeOutExpo = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOutExpo } },
+};
+
 export default function Testimonials() {
   return (
     <section id="testimonials" className="section-spacing bg-white relative">
       <div className="container-main">
-        <div className="text-center mb-16">
-          <div className="section-badge mx-auto mb-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="text-center mb-16"
+        >
+          <motion.div variants={itemVariants} className="section-badge mx-auto mb-4">
             <Star size={14} />
             <span>Success Stories</span>
-          </div>
-          <h2 className="section-title mx-auto">
+          </motion.div>
+          <motion.h2 variants={itemVariants} className="section-title mx-auto">
             Real Businesses.{' '}
             <span className="gradient-text">Real Results.</span>
-          </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          </motion.h2>
+          <motion.p variants={itemVariants} className="section-subtitle mx-auto mt-4">
             See how businesses worldwide are growing with our AI-powered automation platform.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
           {testimonials.map((t, i) => (
-            <div key={i} className="glass-card relative group">
+            <motion.div variants={itemVariants} key={i} className="glass-card relative group">
               <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Quote size={40} />
               </div>
@@ -82,23 +110,23 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-ink-muted text-sm leading-relaxed mb-6 relative z-10">
+              <p className="text-ink-muted text-base md:text-lg leading-relaxed mb-6 relative z-10 italic">
                 "{t.text}"
               </p>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-divider">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl text-white"
+              <div className="flex items-center gap-4 pt-5 border-t border-divider">
+                <div className="w-14 h-14 rounded-full flex items-center justify-center text-3xl text-white"
                      style={{ background: t.gradient }}>
                   {t.avatar}
                 </div>
                 <div>
-                  <div className="font-bold text-ink text-sm">{t.name}</div>
-                  <div className="text-ink-muted text-xs">{t.role}</div>
+                  <div className="font-black text-ink text-base">{t.name}</div>
+                  <div className="text-ink-muted text-sm">{t.role}</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { Heart, Facebook, Instagram, Linkedin, MessageCircle, Phone } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const footerLinks = [
   {
@@ -32,6 +33,21 @@ const footerLinks = [
   },
 ];
 
+const easeOutExpo = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOutExpo } },
+};
+
 export default function Footer() {
   return (
     <footer className="bg-[#0A0A0A] text-slate-400 relative overflow-hidden">
@@ -39,27 +55,33 @@ export default function Footer() {
       <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #DC2626, #EF4444, #DC2626, #B91C1C, #DC2626)' }} />
 
       <div className="container-main py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+          className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8"
+        >
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <a href="#hero" className="flex items-center gap-3 mb-5 group">
-              <img src="/images/logo.png" alt="Blackstone AI Logo" className="w-12 h-12 object-contain" />
+          <motion.div variants={itemVariants} className="lg:col-span-2">
+            <a href="#hero" className="inline-flex items-center gap-3 mb-6 group bg-white px-5 py-3 rounded-2xl shadow-lg border border-gray-100">
+              <img src="/images/logo.png" alt="Blackstone AI Logo" className="w-14 h-14 object-contain" />
               <div className="flex flex-col">
                 <div className="flex items-center">
-                  <span className="text-white font-extrabold text-xl tracking-tight leading-none">Blackstone</span>
-                  <span className="font-extrabold text-xl tracking-tight gradient-text ml-1.5 leading-none">AI</span>
+                  <span className="text-ink font-black text-3xl tracking-tight leading-none group-hover:text-red-600 transition-colors">Blackstone</span>
+                  <span className="font-black text-3xl tracking-tight gradient-text ml-1.5 leading-none">AI</span>
                 </div>
-                <span className="text-slate-400 text-[10px] font-bold tracking-wider mt-1 uppercase italic">Delivering value to your business</span>
+                <span className="text-slate-500 text-[9px] font-bold tracking-widest mt-1 uppercase italic">Delivering value to your business</span>
               </div>
             </a>
-            <p className="text-sm leading-relaxed mb-6 max-w-sm">
+            <p className="text-base leading-relaxed mb-6 max-w-sm">
               AI-powered omnichannel customer engagement platform. Grow your business with smart digital solutions. Delivering value to your business worldwide.
             </p>
             
             <div className="flex flex-col gap-4 mb-6">
               <a href="tel:+6581798737" className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
                 <Phone size={16} className="text-red-500" />
-                <span className="font-bold">+65 81798737</span>
+                <span className="text-lg font-bold">+65 81798737</span>
               </a>
             </div>
 
@@ -76,29 +98,35 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Links */}
           {footerLinks.map((col, i) => (
-            <div key={i}>
-              <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">{col.title}</h4>
+            <motion.div variants={itemVariants} key={i}>
+              <h4 className="text-white font-bold text-base mb-4 uppercase tracking-wider">{col.title}</h4>
               <ul className="space-y-3">
                 {col.links.map((link, j) => (
                   <li key={j}>
-                    <a href={link.href} className="text-sm hover:text-white transition-colors duration-300">
+                    <a href={link.href} className="text-base hover:text-white transition-colors duration-300">
                       {link.label}
                     </a>
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom */}
-        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={itemVariants}
+          className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
+        >
           <p>© {new Date().getFullYear()} Blackstone AI. All rights reserved.</p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

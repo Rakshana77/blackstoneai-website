@@ -1,4 +1,20 @@
 import { Sparkles, MessageCircle, LayoutDashboard } from 'lucide-react';
+import { motion } from 'motion/react';
+
+const easeOutExpo = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOutExpo } },
+};
 
 export default function About() {
   return (
@@ -6,20 +22,32 @@ export default function About() {
       <div className="glow-orb w-[300px] h-[300px] bg-primary top-0 right-0 opacity-[0.04]" />
 
       <div className="container-main">
-        <div className="text-center mb-16">
-          <div className="section-badge mx-auto mb-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="text-center mb-16"
+        >
+          <motion.div variants={itemVariants} className="section-badge mx-auto mb-4">
             <Sparkles size={14} />
             <span>Key Features</span>
-          </div>
-          <h2 className="section-title mx-auto">
+          </motion.div>
+          <motion.h2 variants={itemVariants} className="section-title mx-auto">
             Your Complete{' '}
             <span className="gradient-text">Business Engine</span>
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="grid lg:grid-cols-2 gap-8 lg:gap-12"
+        >
           {/* AI Sales */}
-          <div className="glass-card group relative overflow-hidden">
+          <motion.div variants={itemVariants} className="glass-card group relative overflow-hidden">
             <div className="absolute top-4 right-4">
               <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-red-600 text-white">AI SALES</span>
             </div>
@@ -39,10 +67,10 @@ export default function About() {
             </div>
             <div className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                  style={{ background: 'linear-gradient(135deg, #DC2626, #EF4444)' }} />
-          </div>
+          </motion.div>
 
           {/* Smart CRM */}
-          <div className="glass-card group relative overflow-hidden">
+          <motion.div variants={itemVariants} className="glass-card group relative overflow-hidden">
             <div className="absolute top-4 right-4">
               <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0A0A0A] text-white">SMART CRM</span>
             </div>
@@ -62,8 +90,8 @@ export default function About() {
             </div>
             <div className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                  style={{ background: 'linear-gradient(135deg, #0A0A0A, #1C1C1C)' }} />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

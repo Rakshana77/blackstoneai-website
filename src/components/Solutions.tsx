@@ -1,4 +1,5 @@
 import { Scissors, UtensilsCrossed, ShoppingBag, Briefcase, GraduationCap, Heart, ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const solutions = [
   {
@@ -51,53 +52,80 @@ const solutions = [
   },
 ];
 
+const easeOutExpo = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOutExpo } },
+};
+
 export default function Solutions() {
   return (
     <section id="solutions" className="section-spacing bg-soft relative">
       <div className="container-main">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="section-badge mx-auto mb-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="text-center mb-16"
+        >
+          <motion.div variants={itemVariants} className="section-badge mx-auto mb-4">
             <Briefcase size={14} />
             <span>Industry Solutions</span>
-          </div>
-          <h2 className="section-title mx-auto">
+          </motion.div>
+          <motion.h2 variants={itemVariants} className="section-title mx-auto">
             Built for{' '}
             <span className="gradient-text">Every Industry</span>
-          </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          </motion.h2>
+          <motion.p variants={itemVariants} className="section-subtitle mx-auto mt-4">
             Whether you run a salon or a SaaS company — Blackstone AI adapts to your workflow.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Solutions Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
           {solutions.map((s, i) => (
-            <div key={i} className="glass-card group relative overflow-hidden" style={{ background: s.bgGradient }}>
+            <motion.div variants={itemVariants} key={i} className="glass-card group relative overflow-hidden" style={{ background: s.bgGradient }}>
               <div className="flex items-start gap-4">
                 <div className="feature-icon-wrap shrink-0 !mb-0" style={{ background: s.gradient }}>
                   <s.icon size={22} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-ink mb-2">{s.title}</h3>
-                  <p className="text-ink-muted text-sm leading-relaxed mb-4">{s.desc}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
+                  <h3 className="text-xl md:text-2xl font-black text-ink mb-3">{s.title}</h3>
+                  <p className="text-ink-muted text-base leading-relaxed mb-5">{s.desc}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {s.features.map((f, j) => (
-                      <span key={j} className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white/80 text-ink-light border border-white/60">
+                      <span key={j} className="text-xs md:text-sm font-semibold px-3 py-1.5 rounded-full bg-white/80 text-ink-light border border-white/60 shadow-sm">
                         {f}
                       </span>
                     ))}
                   </div>
                   <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
                      target="_blank" rel="noopener noreferrer"
-                     className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-3 transition-all duration-300">
-                    Get Started <ArrowRight size={14} />
+                     className="inline-flex items-center gap-1.5 text-base font-bold text-primary group-hover:gap-3 transition-all duration-300">
+                    Get Started <ArrowRight size={16} />
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

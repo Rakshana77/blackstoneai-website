@@ -1,4 +1,5 @@
 import { MessageSquare, Bot, LayoutDashboard, Instagram, Megaphone, UsersRound, ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const features = [
   {
@@ -45,6 +46,21 @@ const features = [
   },
 ];
 
+const easeOutExpo = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOutExpo } },
+};
+
 export default function Features() {
   return (
     <section id="features" className="section-spacing bg-white relative overflow-hidden">
@@ -54,27 +70,39 @@ export default function Features() {
 
       <div className="container-main relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="section-badge mx-auto mb-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="text-center mb-16"
+        >
+          <motion.div variants={itemVariants} className="section-badge mx-auto mb-4">
             <Bot size={14} />
             <span>Platform Features</span>
-          </div>
-          <h2 className="section-title mx-auto">
+          </motion.div>
+          <motion.h2 variants={itemVariants} className="section-title mx-auto">
             One Platform.{' '}
             <span className="gradient-text">Infinite Possibilities.</span>
-          </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          </motion.h2>
+          <motion.p variants={itemVariants} className="section-subtitle mx-auto mt-4">
             Everything you need to automate customer engagement, boost sales, and scale your business — without hiring more people.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Feature Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
           {features.map((f, i) => (
-            <div key={i} className="glass-card group relative overflow-hidden">
+            <motion.div variants={itemVariants} key={i} className="glass-card group relative overflow-hidden">
               {/* Tag */}
               <div className="absolute top-4 right-4">
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full"
                       style={{ background: f.gradient, color: 'white', opacity: 0.9 }}>
                   {f.tag}
                 </span>
@@ -82,24 +110,24 @@ export default function Features() {
 
               {/* Icon */}
               <div className="feature-icon-wrap" style={{ background: f.gradient }}>
-                <f.icon size={24} />
+                <f.icon size={28} />
               </div>
 
-              <h3 className="text-xl font-bold text-ink mb-3">{f.title}</h3>
-              <p className="text-ink-muted text-sm leading-relaxed mb-4">{f.desc}</p>
+              <h3 className="text-2xl font-black text-ink mb-3">{f.title}</h3>
+              <p className="text-ink-muted text-base md:text-lg leading-relaxed mb-6">{f.desc}</p>
 
               <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
                  target="_blank" rel="noopener noreferrer"
-                 className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-3 transition-all duration-300">
-                Learn More <ArrowRight size={14} />
+                 className="inline-flex items-center gap-1.5 text-base font-bold text-primary group-hover:gap-3 transition-all duration-300">
+                Learn More <ArrowRight size={16} />
               </a>
 
               {/* Bottom gradient line on hover */}
               <div className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                    style={{ background: f.gradient }} />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

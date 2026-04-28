@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from 'motion/react';
 
 const faqs = [
   {
@@ -36,48 +37,75 @@ const faqs = [
   },
 ];
 
+const easeOutExpo = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOutExpo } },
+};
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section id="faq" className="section-spacing bg-soft">
       <div className="container-main max-w-3xl">
-        <div className="text-center mb-12">
-          <div className="section-badge mx-auto mb-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="text-center mb-12"
+        >
+          <motion.div variants={itemVariants} className="section-badge mx-auto mb-4">
             <span>💬</span>
             <span>FAQ</span>
-          </div>
-          <h2 className="section-title mx-auto">
+          </motion.div>
+          <motion.h2 variants={itemVariants} className="section-title mx-auto">
             Got{' '}
             <span className="gradient-text">Questions?</span>
-          </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          </motion.h2>
+          <motion.p variants={itemVariants} className="section-subtitle mx-auto mt-4">
             Everything you need to know about Blackstone AI. Can't find your answer? Chat with us.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="space-y-3">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+          className="space-y-3"
+        >
           {faqs.map((faq, i) => (
-            <div key={i} className="rounded-2xl border border-divider overflow-hidden transition-all duration-300"
+            <motion.div variants={itemVariants} key={i} className="rounded-2xl border border-divider overflow-hidden transition-all duration-300"
                  style={{ background: openIndex === i ? 'linear-gradient(135deg, #FEF2F2, #FFF1F2)' : 'white' }}>
               <button
                 id={`faq-toggle-${i}`}
-                className="w-full flex items-center justify-between p-5 text-left cursor-pointer"
+                className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 aria-expanded={openIndex === i}
               >
-                <span className="font-bold text-ink text-sm md:text-base pr-4">{faq.q}</span>
+                <span className="font-bold text-ink text-base md:text-lg pr-4">{faq.q}</span>
                 <ChevronDown
-                  size={20}
+                  size={24}
                   className={`shrink-0 text-ink-muted transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
                 />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-[500px] pb-5' : 'max-h-0'}`}>
-                <p className="px-5 text-ink-muted text-sm leading-relaxed">{faq.a}</p>
+              <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-[500px] pb-6' : 'max-h-0'}`}>
+                <p className="px-6 text-ink-muted text-base leading-relaxed">{faq.a}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
