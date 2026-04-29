@@ -199,10 +199,10 @@
   
   /* Nav */
   .nav-link {
-    @apply text-base font-semibold text-slate-300 transition-colors duration-300 cursor-pointer;
+    @apply text-base font-semibold text-slate-600 transition-colors duration-300 cursor-pointer;
   }
   .nav-link:hover {
-    @apply text-white;
+    @apply text-ink;
   }
 }
 

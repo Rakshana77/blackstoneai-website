@@ -26,15 +26,15 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       id="navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-white border-b border-gray-100 ${
         scrolled
-          ? 'bg-[#0A0A0A]/90 backdrop-blur-xl shadow-2xl shadow-black/40 py-3 border-b border-white/5'
-          : 'bg-transparent py-5'
+          ? 'opacity-85 shadow-lg py-3'
+          : 'opacity-100 py-5'
       }`}
     >
-      <div className="container-main flex items-center justify-between">
+      <div className="w-full px-6 lg:px-12 flex items-center justify-between max-w-[1920px] mx-auto">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-3 group bg-white px-4 py-2.5 rounded-2xl shadow-lg border border-gray-100">
+        <a href="#hero" className="flex items-center gap-3 group">
           <motion.img 
             whileHover={{ scale: 1.05, rotate: 5 }} 
             src="/images/logo.png" 
@@ -69,10 +69,10 @@ export default function Navbar() {
           <motion.a 
             whileHover={{ scale: 1.05 }}
             href="tel:+6581798737" 
-            className="flex items-center gap-2 text-white font-bold text-lg hover:text-red-500 transition-colors"
+            className="flex items-center gap-2 text-ink font-bold text-lg hover:text-red-500 transition-colors"
           >
-            <div className="w-10 h-10 rounded-full bg-red-600/20 flex items-center justify-center">
-              <Zap size={16} className="text-red-500" />
+            <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
+              <Zap size={16} className="text-red-600" />
             </div>
             <span>+65 81798737</span>
           </motion.a>
@@ -89,7 +89,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           id="mobile-menu-toggle"
-          className="lg:hidden text-white p-2"
+          className="lg:hidden text-ink p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -102,21 +102,21 @@ export default function Navbar() {
         <motion.div 
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          className="lg:hidden bg-[#0A0A0A]/98 backdrop-blur-xl border-t border-white/10 mt-2 overflow-hidden"
+          className="lg:hidden bg-white/98 backdrop-blur-xl border-t border-gray-100 mt-2 overflow-hidden"
         >
           <div className="container-main py-6 flex flex-col gap-4">
             {navLinks.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-slate-300 hover:text-white font-semibold text-base py-2 transition-colors"
+                className="text-slate-600 hover:text-ink font-semibold text-base py-2 transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {l.label}
               </a>
             ))}
             <div className="flex flex-col gap-3 mt-4">
-              <a href="tel:+6581798737" className="text-white font-bold py-2 border-b border-white/10 flex items-center gap-2">
+              <a href="tel:+6581798737" className="text-ink font-bold py-2 border-b border-gray-100 flex items-center gap-2">
                 <Zap size={16} className="text-red-500" /> +65 81798737
               </a>
               <a href="https://wa.me/6581798737?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
