@@ -119,14 +119,16 @@ export default function HowItWorks() {
                 <motion.div 
                   key={i} 
                   variants={itemVariants} 
-                  className={`relative z-10 flex flex-col items-center transition-all duration-500 ${
-                    isActive ? 'scale-105 opacity-100' : 
-                    isAiAgent ? 'scale-100 opacity-90' : 'scale-95 opacity-50'
+                  className={`relative z-10 flex flex-col items-center transition-all duration-500 h-full ${
+                    isActive ? 'opacity-100' : 
+                    isAiAgent ? 'opacity-90' : 'opacity-50'
                   }`}
                 >
                   {/* Node */}
                   <div 
-                    className="w-24 h-24 rounded-2xl flex items-center justify-center text-white mb-6 relative shadow-xl transition-all duration-500"
+                    className={`w-24 h-24 rounded-2xl flex items-center justify-center text-white mb-8 relative shadow-xl transition-all duration-500 ${
+                      isActive ? 'scale-110' : 'scale-100'
+                    }`}
                     style={{ 
                       background: s.gradient,
                       boxShadow: isActive ? '0 20px 40px -10px rgba(220,38,38,0.5)' : 
@@ -144,14 +146,14 @@ export default function HowItWorks() {
                   </div>
                   
                   {/* Text */}
-                  <h3 className={`text-lg md:text-xl font-bold mb-4 text-center transition-colors ${isActive || isAiAgent ? 'text-ink' : 'text-slate-400'}`}>
+                  <h3 className={`text-lg md:text-xl font-bold mb-6 text-center transition-colors ${isActive || isAiAgent ? 'text-ink' : 'text-slate-400'}`}>
                     {s.title}
                   </h3>
-                  <ul className="text-center md:text-left text-sm text-slate-500 font-medium space-y-2 px-2 w-full">
+                  <ul className="text-left text-sm text-slate-500 font-medium space-y-4 px-2 w-full flex-grow">
                     {s.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start justify-center md:justify-start gap-2">
-                        <span className="text-red-500 mt-0.5 shrink-0">•</span>
-                        <span className="leading-snug">{item}</span>
+                      <li key={idx} className="flex items-start justify-start gap-3">
+                        <span className="text-red-500 mt-0.5 shrink-0 text-lg leading-none">•</span>
+                        <span className="leading-snug pt-0.5">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -166,48 +168,47 @@ export default function HowItWorks() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
-            className="grid md:grid-cols-5 gap-4 md:gap-8 relative mt-16"
+            className="grid md:grid-cols-5 gap-4 md:gap-8 relative mt-16 md:mt-32"
           >
             {/* Empty space for column 1 */}
             <div className="hidden md:block col-span-1" />
             
             {/* Business Knowledge Card aligned under AI AGENTS (column 2) */}
-            <motion.div variants={itemVariants} className="relative z-10 flex flex-col items-center col-span-1 md:col-start-2">
-              {/* Arrow connecting Business Knowledge up to AI Agents */}
-              <div className="hidden md:block absolute -top-16 left-1/2 w-0 h-16 border-l-2 border-dashed border-red-300 z-0 flex flex-col items-center">
-                 {/* Arrow head */}
-                 <div className="w-2 h-2 border-t-2 border-l-2 border-red-400 rotate-45 transform -translate-y-1 bg-white" />
-              </div>
-              
+            <motion.div variants={itemVariants} className="relative z-10 flex flex-col items-center col-span-1 md:col-start-2 h-full">
               {/* Node */}
               <div 
-                className="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center text-white mb-6 relative shadow-xl transition-all duration-500"
+                className="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center text-white mb-8 relative shadow-xl transition-all duration-500"
                 style={{ 
                   background: 'linear-gradient(135deg, #F43F5E, #E11D48)', // Rose red
                   boxShadow: '0 10px 20px -5px rgba(225,29,72,0.3)'
                 }}
               >
                 <BookOpen size={32} />
+                
+                {/* Solid line connecting Business Knowledge up to AI Agents */}
+                <div className="hidden md:block absolute bottom-full mb-6 left-1/2 -translate-x-1/2 flex flex-col items-center z-[-1]">
+                   <div className="w-1 h-20 bg-red-500 rounded-full" />
+                </div>
               </div>
               
               {/* Text */}
-              <h3 className="text-lg md:text-xl font-bold mb-4 text-center text-ink">BUSINESS KNOWLEDGE</h3>
-              <ul className="text-center md:text-left text-sm text-slate-500 font-medium space-y-2 px-2 w-full">
-                <li className="flex items-start justify-center md:justify-start gap-2">
-                  <span className="text-red-500 mt-0.5 shrink-0">•</span>
-                  <span className="leading-snug">Product Info & Pricing</span>
+              <h3 className="text-lg md:text-xl font-bold mb-6 text-center text-ink">BUSINESS KNOWLEDGE</h3>
+              <ul className="text-left text-sm text-slate-500 font-medium space-y-4 px-2 w-full flex-grow">
+                <li className="flex items-start justify-start gap-3">
+                  <span className="text-red-500 mt-0.5 shrink-0 text-lg leading-none">•</span>
+                  <span className="leading-snug pt-0.5">Product Info & Pricing</span>
                 </li>
-                <li className="flex items-start justify-center md:justify-start gap-2">
-                  <span className="text-red-500 mt-0.5 shrink-0">•</span>
-                  <span className="leading-snug">Business FAQs</span>
+                <li className="flex items-start justify-start gap-3">
+                  <span className="text-red-500 mt-0.5 shrink-0 text-lg leading-none">•</span>
+                  <span className="leading-snug pt-0.5">Business FAQs</span>
                 </li>
-                <li className="flex items-start justify-center md:justify-start gap-2">
-                  <span className="text-red-500 mt-0.5 shrink-0">•</span>
-                  <span className="leading-snug">Company Policies</span>
+                <li className="flex items-start justify-start gap-3">
+                  <span className="text-red-500 mt-0.5 shrink-0 text-lg leading-none">•</span>
+                  <span className="leading-snug pt-0.5">Company Policies</span>
                 </li>
               </ul>
               
-              <div className="mt-6 text-xs font-bold text-red-600 bg-red-50 px-4 py-2 rounded-full uppercase tracking-wider border border-red-100 shadow-sm text-center">
+              <div className="mt-8 text-xs font-bold text-red-600 bg-red-50 px-4 py-2 rounded-full uppercase tracking-wider border border-red-100 shadow-sm text-center w-full md:w-auto">
                 AI TRAINED ON YOUR DATA
               </div>
             </motion.div>

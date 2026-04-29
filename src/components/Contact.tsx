@@ -92,7 +92,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-sm text-ink-muted font-semibold uppercase tracking-wider mb-1">Email</div>
-                <a href="mailto:hello@blackstoneai.in" className="text-ink text-lg font-bold hover:text-primary transition-colors">hello@blackstoneai.in</a>
+                <a href="mailto:sales@blackstoneai.co" className="text-ink text-lg font-bold hover:text-primary transition-colors">sales@blackstoneai.co</a>
               </div>
             </motion.div>
 
